@@ -23,7 +23,7 @@ const HomePage = () => {
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Get Started</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg mx-auto">
           <Link
-            to="/app"
+            to="/"
             className="bg-blue-500 text-white py-3 rounded-lg shadow-md hover:bg-blue-600 transition text-lg text-center"
           >
             Child App

@@ -27,7 +27,7 @@ const Header = () => {
 
         {/* Navigation Links for Desktop */}
         <div className="hidden md:flex space-x-6 text-lg">
-          <Link to="/app" className="hover:text-gray-300 hover:underline transition duration-200">
+          <Link to="/" className="hover:text-gray-300 hover:underline transition duration-200">
             App
           </Link>
           <Link to="/settings" className="hover:text-gray-300 hover:underline transition duration-200">
@@ -42,7 +42,7 @@ const Header = () => {
         <div className="md:hidden bg-blue-500">
           <div className="flex flex-col items-center space-y-4 py-4">
             <Link
-              to="/app"
+              to="/"
               className="text-white hover:text-gray-300 hover:underline transition duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
