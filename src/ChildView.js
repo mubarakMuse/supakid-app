@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import LoginView from "./LoginView";
 import Dashboard from "./Dashboard";
