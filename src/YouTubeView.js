@@ -123,6 +123,30 @@ const YouTubeView = ({ channels, selectedChannel, setSelectedChannel }) => {
     setFullscreen(false);
   };
 
+  const togglePlayPause = () => {
+    if (player) {
+      if (player.getPlayerState() === window.YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
+    }
+  };
+
+  const moveForward = () => {
+    if (player) {
+      const currentTime = player.getCurrentTime();
+      player.seekTo(currentTime + 10, true);
+    }
+  };
+
+  const moveBackward = () => {
+    if (player) {
+      const currentTime = player.getCurrentTime();
+      player.seekTo(currentTime - 10, true);
+    }
+  };
+
   // Sort videos by publishedAt date (latest to oldest)
   const sortedVideos = videos.sort((a, b) => new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt));
 
@@ -152,22 +176,28 @@ const YouTubeView = ({ channels, selectedChannel, setSelectedChannel }) => {
           <div className="fixed inset-0 bg-black z-50 flex flex-col justify-center items-center">
             <div id="fullscreen-video" className="w-full h-full" style={{ pointerEvents: "none" }}></div>
             <div className="absolute inset-0 flex justify-center items-end mb-6">
-              <div className="space-x-4">
+              <div className="space-x-2">
                 <button
-                  onClick={() => player?.playVideo()}
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
+                  onClick={togglePlayPause}
+                  className="bg-green-500 text-white px-2 py-1 rounded-lg shadow hover:bg-green-600 transition duration-300 text-sm"
                 >
-                  Play
+                Play / Pause
                 </button>
                 <button
-                  onClick={() => player?.pauseVideo()}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
+                  onClick={moveBackward}
+                  className="bg-blue-500 text-white px-2 py-1 rounded-lg shadow hover:bg-blue-600 transition duration-300 text-sm"
                 >
-                  Pause
+                  Back 10s
+                </button>
+                <button
+                  onClick={moveForward}
+                  className="bg-yellow-500 text-white px-2 py-1 rounded-lg shadow hover:bg-yellow-600 transition duration-300 text-sm"
+                >
+                  Forward 10s
                 </button>
                 <button
                   onClick={exitFullscreen}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 transition duration-300"
+                  className="bg-red-500 text-white px-2 py-1 rounded-lg shadow hover:bg-red-600 transition duration-300 text-sm"
                 >
                   Exit
                 </button>
