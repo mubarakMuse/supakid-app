@@ -18,7 +18,7 @@ const LoginView = ({ onLogin }) => {
         .single();
 
       if (error || !data) {
-        setError("Invalid child code. Please try again.");
+        setError("Invalid child code. Please try again. (Case Sensitive)");
         return;
       }
 

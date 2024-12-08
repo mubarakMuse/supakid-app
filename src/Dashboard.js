@@ -2,12 +2,12 @@ import React from "react";
 
 const Dashboard = ({ onSelectOption }) => {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold mb-6">Welcome to SupaKid</h1>
-      <p className="text-lg mb-8">Choose an option for your child:</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col items-center justify-center p-8">
+      <h1 className="text-4xl font-extrabold mb-4">Welcome to SupaKid</h1>
+      <p className="text-md mb-6 text-gray-600">Choose an option for your child:</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <button
-          className="bg-red-500 text-white px-6 py-4 rounded-lg shadow hover:bg-red-600 transition"
+          className="bg-blue-500 text-white px-8 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-200"
           onClick={() => onSelectOption("youtube")}
         >
           Filter YouTube

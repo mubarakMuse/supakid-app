@@ -14,7 +14,10 @@ const Header = () => {
     <nav className="bg-blue-500 text-white shadow-lg">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo and Title */}
+        <Link to="/">
           <span className="text-2xl font-bold tracking-wide">SupaKid</span>
+        </Link>
+
 
         {/* Hamburger Icon for Mobile */}
         <button className="md:hidden focus:outline-none" onClick={toggleMenu}>
@@ -33,7 +36,7 @@ const Header = () => {
           <Link to="/settings" className="hover:text-gray-300 hover:underline transition duration-200">
             Settings
           </Link>
-        
+
         </div>
       </div>
 
@@ -55,7 +58,7 @@ const Header = () => {
             >
               Settings
             </Link>
-           
+
           </div>
         </div>
       )}
