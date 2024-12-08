@@ -38,7 +38,7 @@ const YouTubeView = ({ channels, selectedChannel, setSelectedChannel }) => {
 
       const channelId = handleData.items[0].id.channelId;
       const videosResponse = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&channelId=${channelId}&type=video&part=snippet&maxResults=30`
+        `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&channelId=${channelId}&type=video&part=snippet&maxResults=50`
       );
       const videosData = await videosResponse.json();
       setVideos(videosData.items);
@@ -123,6 +123,9 @@ const YouTubeView = ({ channels, selectedChannel, setSelectedChannel }) => {
     setFullscreen(false);
   };
 
+  // Sort videos by publishedAt date (latest to oldest)
+  const sortedVideos = videos.sort((a, b) => new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt));
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       <div className="container mx-auto p-4">
@@ -173,7 +176,7 @@ const YouTubeView = ({ channels, selectedChannel, setSelectedChannel }) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {videos.map((video) => (
+            {sortedVideos.map((video) => (
               <div
                 key={video.id.videoId}
                 className="bg-white p-4 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
