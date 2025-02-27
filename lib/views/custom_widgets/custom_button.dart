@@ -9,18 +9,20 @@ class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool showIcon;
+  final double? padding;
 
   const CustomButton({
     Key? key,
     required this.text,
     required this.onPressed,
     this.showIcon = true,
+    this.padding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.0.h),
+      padding: EdgeInsets.symmetric(horizontal: padding ?? 20.0.h),
       child: Container(
         width: AppStyles.width(context),
         decoration: BoxDecoration(
