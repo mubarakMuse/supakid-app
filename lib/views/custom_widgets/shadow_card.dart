@@ -10,7 +10,7 @@ class ShadowCard extends StatelessWidget {
   const ShadowCard({
     Key? key,
     required this.child,
-    required this.height,
+    this.height,
      this.width,
   }) : super(key: key);
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:supakids/utils/app_colors.dart';
+import 'package:supakids/views/custom_widgets/shadow_card.dart';
 
 import '../../utils/app_styles.dart';
 
@@ -20,22 +21,8 @@ class ExpandableContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Container(
-      height: isExpanded.value
-          ? AppStyles.height(context) / 4.31
-          : AppStyles.height(context) * 0.099,
+    return Obx(() => ShadowCard(
       width: AppStyles.width(context),
-      decoration: BoxDecoration(
-        color: kCardColor,
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: [
-          BoxShadow(
-            color: kBlackColor.withOpacity(0.2),
-            blurRadius: 10,
-            offset: const Offset(6, 6),
-          )
-        ],
-      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
         child: Column(

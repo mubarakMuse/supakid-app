@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../../../../utils/app_colors.dart';
 import '../../../../../utils/app_strings.dart';
 import '../../../../../utils/app_styles.dart';
-import 'onBoard_controller.dart';
+import 'controller/onBoard_controller.dart';
 
 class OnBoarding extends GetView<OnBoardingController> {
   const OnBoarding({super.key});
@@ -56,9 +56,12 @@ class OnBoarding extends GetView<OnBoardingController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            kSkip,
-                            style: AppStyles.interStyle(index == 1 ? kBlackColor : kWhiteColor, 20, FontWeight.w400),
+                          GestureDetector(
+                            onTap: ()  => Get.toNamed(kLogin),
+                            child: Text(
+                              kSkip,
+                              style: AppStyles.interStyle(index == 1 ? kBlackColor : kWhiteColor, 20, FontWeight.w400),
+                            ),
                           ),
                           Obx(() => Row(
                             children: List.generate(

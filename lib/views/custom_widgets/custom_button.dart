@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool showIcon;
   final double? padding;
+  final bool isLoading;
 
   const CustomButton({
     Key? key,
@@ -17,6 +18,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.showIcon = true,
     this.padding,
+    this.isLoading = false,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,9 @@ class CustomButton extends StatelessWidget {
         width: AppStyles.width(context),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          boxShadow: const [
+          boxShadow: isLoading
+              ? []
+              : const [
             BoxShadow(
               color: kBlackColor,
               offset: Offset(0, 10),
@@ -37,7 +41,7 @@ class CustomButton extends StatelessWidget {
           ],
         ),
         child: ElevatedButton(
-          onPressed: onPressed,
+          onPressed: isLoading ? null : onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: kPrimaryColor,
             elevation: 0,
@@ -49,17 +53,29 @@ class CustomButton extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Center(
-                child: Text(
-                  text,
-                  style: AppStyles.interStyle(kWhiteColor, 16, FontWeight.w700),
+              if (!isLoading)
+                Center(
+                  child: Text(
+                    text,
+                    style: AppStyles.interStyle(kWhiteColor, 16, FontWeight.w700),
+                  ),
                 ),
-              ),
-              if(showIcon)
-              Positioned(
-                right: 38.w,
-                child: Image.asset(kRightArrow, width: 26.w),
-              ),
+              if (isLoading)
+                Center(
+                  child: SizedBox(
+                    height: 24.w,
+                    width: 24.w,
+                    child: const CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: kWhiteColor,
+                    ),
+                  ),
+                ),
+              if (showIcon && !isLoading)
+                Positioned(
+                  right: 38.w,
+                  child: Image.asset(kRightArrow, width: 26.w),
+                ),
             ],
           ),
         ),

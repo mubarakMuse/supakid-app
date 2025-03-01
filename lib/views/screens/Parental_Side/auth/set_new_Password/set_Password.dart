@@ -134,9 +134,9 @@ class NewPasswordScreen extends GetView<SetPasswordController>{
                             if (controller.passwordError.isNotEmpty ||
                                 controller.confirmPasswordError.isNotEmpty
                             ) {
-                              showToast(context, msg: kToast, duration: 2);
+                              showToast(context, msg: kFieldsToast, duration: 2);
                             }else{
-                              Get.toNamed(kSignupSuccess);
+                              Get.toNamed(kSignupSuccessful);
                             }
                           },
                         ),

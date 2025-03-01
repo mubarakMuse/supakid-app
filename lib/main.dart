@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
             title: kAppName,
             debugShowCheckedModeBanner: false,
             initialBinding: ScreenBindings(),
-            initialRoute: kHome,
+            initialRoute: kSplashRoute,
             getPages: RouteGenerator.getPages(),
             builder: (context, child) {
               return MediaQuery(

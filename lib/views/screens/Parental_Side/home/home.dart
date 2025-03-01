@@ -40,38 +40,56 @@ class HomeScreen extends GetView<HomeController> {
                   ],
                 ),
                 SizedBox(height: 24.h,),
-                Row(
+                Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomHomeContainer(
-                      onPressed: () => Get.toNamed(kChildPro),
+                        index: 0,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(0);
+                          Get.toNamed(kChildPro);
+                        },
                         image: kProfile,
                         heading: kChildProfile,
-                        subHeading: kAddEdit),
+                        subHeading: kAddEdit
+                    ),
                     CustomHomeContainer(
-                        onPressed: () => Get.toNamed(kContentPrefer),
-                        height1: 30.h,
-                        image: kPrefer,
-                        height2: 3.h,
-                        width: 24.w,
-                        heading: kContent,
-                        height3: 0,
-                        subHeading: kSetContent),
+                        index: 1,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(1);
+                          Get.toNamed(kChildPro);
+                        },
+                        image: kProfile,
+                        heading: kChildProfile,
+                        subHeading: kAddEdit
+                    ),
                   ],
-                ),
+                ),),
                 SizedBox(height: 24.h,),
-                Row(
+                Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomHomeContainer(
-                        onPressed: (){},
-                      height1: 25.h,
+                        index: 2,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(2);
+                          Get.toNamed(kScreenTime);
+                        },
+                        height1: 25.h,
                         image: kMobIcon,
                         width: 19,
-                        heading: kScreenTime,
+                        heading: kScreenTimes,
                         subHeading: kViewRecent),
                     CustomHomeContainer(
-                        onPressed: (){},
+                        index: 3,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(3);
+                          Get.toNamed(kYoutubePlaylist);
+                        },
                         height1: 26.h,
                         image: kYoutube,
                         height2: 3.h,
@@ -80,20 +98,31 @@ class HomeScreen extends GetView<HomeController> {
                         height3: 0,
                         subHeading: kManage),
                   ],
-                ),
+                ),),
                 SizedBox(height: 24.h,),
-                Row(
+                Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomHomeContainer(
-                        onPressed: (){},
+                        index: 4,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(4);
+                          Get.toNamed(kActiveHistory);
+                        },
                         height1: 25.h,
-                        image: kMobIcon,
-                        width: 19,
+                        image: kHistoryIcon,
+                        width: 24,
+                        height2: 8.h,
                         heading: kActivity,
                         subHeading: kViewRecent),
                     CustomHomeContainer(
-                        onPressed: (){},
+                        index: 5,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(5);
+                          Get.toNamed(kNotification);
+                        },
                         height1: 26.h,
                         image: kBell,
                         // height2: 5.h,
@@ -102,13 +131,18 @@ class HomeScreen extends GetView<HomeController> {
                         height3: 2.h,
                         subHeading: kGetAlert),
                   ],
-                ),
+                ),),
                 SizedBox(height: 24.h,),
-                Row(
+                Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomHomeContainer(
-                        onPressed: (){},
+                        index: 6,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(6);
+                          Get.toNamed(kSubscriptionPayment);
+                        },
                         height1: 25.h,
                         image: kPayment,
                         width: 32.w,
@@ -116,7 +150,12 @@ class HomeScreen extends GetView<HomeController> {
                         height3: 5.h,
                         subHeading: kManagePlans),
                     CustomHomeContainer(
-                        onPressed: (){},
+                        index: 7,
+                        selectedIndex: controller.selectedIndex.value,
+                        onPressed: () {
+                          controller.changeSelectedIndex(7);
+                          Get.toNamed(kSettingPage);
+                        },
                         height1: 26.h,
                         image: kSetting,
                         height2: 8.h,
@@ -125,7 +164,7 @@ class HomeScreen extends GetView<HomeController> {
                         height3: 5.h,
                         subHeading: kChangeParental),
                   ],
-                ),
+                ),),
                 SizedBox(height: 32.h,),
                 
                 

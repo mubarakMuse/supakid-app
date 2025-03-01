@@ -13,7 +13,7 @@ import '../../../../../../utils/app_strings.dart';
 import '../../../../../custom_widgets/back_button.dart';
 import '../../../../../custom_widgets/custom_textfield.dart';
 import '../../../../../custom_widgets/expandable_container.dart';
-import '../../../../../custom_widgets/toggle_container.dart';
+import '../../../../../custom_widgets/custom_tile.dart';
 import 'controller/child_profiles_controller.dart';
 
 class EditProfilesScreen extends GetView<EditProfileController> {
@@ -48,7 +48,7 @@ class EditProfilesScreen extends GetView<EditProfileController> {
                         SizedBox(width: 50.w),
                       ],
                     ),
-                    SizedBox(height: 22.h,),
+                    SizedBox(height: 15.h,),
                     Text(kEditProfile, style: AppStyles.interStyle(kBlackColor, 20, FontWeight.w800)),
                     SizedBox(height: 3.h),
                     Text(kUpdateInfo, style: AppStyles.interStyle(kMidGreyColor, 14, FontWeight.w400)),
@@ -115,22 +115,22 @@ class EditProfilesScreen extends GetView<EditProfileController> {
                       hintText: kMale,
                     ),
                     SizedBox(height: 18.h,),
-                    CustomSwitchTile(
+                    CustomTile(
                       label: kRestrict,
                       switchValue: controller.isSwitch1,
                       onToggle: controller.switchToggle1,
                     ),
                     SizedBox(height: 12.h,),
-                    CustomSwitchTile(
+                    CustomTile(
                       label: kOnlyAllow,
                       switchValue: controller.isSwitch2,
                       onToggle: controller.switchToggle2,
                     ),
                     SizedBox(height: 12.h,),
-                    CustomSwitchTile(
+                    CustomTile(
                       label: kDelete,
                       imagePath: kDelIcon,
-                      padding: 20.w,
+                      rightPadding: 20.w,
                     ),
                     SizedBox(height: 33.h,),
                     CustomButton(

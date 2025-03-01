@@ -14,6 +14,13 @@ String kEditIcon = "$basePathIcons/edit.png";
 String kDelIcon = "$basePathIcons/delete.png";
 String kPayment = "$basePathIcons/payment.png";
 String kSetting = "$basePathIcons/setting.png";
+String kApprovedIcon = "$basePathIcons/approved.png";
+String kPremiumIcon = "$basePathIcons/premium.png";
+String kBillIcon = "$basePathIcons/bill.png";
+String kPlaneIcon = "$basePathIcons/chnagePlane.png";
+String kHistoryIcon = "$basePathIcons/history.png";
+String kCancelIcon = "$basePathIcons/cancel.png";
+
 
 
 
@@ -25,3 +32,6 @@ String konBoard3 = "$basePath/onBoard3.png";
 String kPencil = "$basePath/pencil.png";
 String kBg = "$basePath/bg.png";
 String kSupaLogo = "$basePath/supaLogo.png";
+String kSpaceIMG = "$basePath/space.png";
+String kLionIMG = "$basePath/lion.png";
+String kChildIMG = "$basePath/child.png";

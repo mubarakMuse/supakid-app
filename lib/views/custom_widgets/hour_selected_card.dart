@@ -27,7 +27,6 @@ class HourSelectorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  ShadowCard (
-      height: AppStyles.height(context) / 6.6,
       width: AppStyles.width(context),
       child:  Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 17),
@@ -51,19 +50,22 @@ class HourSelectorCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.h,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                    onTap: onDecrement,
-                    child: Icon(Icons.arrow_back_ios, size: 20.w, color: kBlackColor,)),
-                Obx(() =>
-                    Text('${hours.value} hour', style: AppStyles.interStyle(kBlackColor, 14, FontWeight.w600)),
-                ),
-                GestureDetector(
-                    onTap: onIncrement,
-                    child: Icon(Icons.arrow_forward_ios, size: 20.w, color: kBlackColor,)),
-              ],
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 8.0.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                      onTap: onDecrement,
+                      child: Icon(Icons.arrow_back_ios, size: 20.w, color: kBlackColor,)),
+                  Obx(() =>
+                      Text('${hours.value} hour', style: AppStyles.interStyle(kBlackColor, 14, FontWeight.w600)),
+                  ),
+                  GestureDetector(
+                      onTap: onIncrement,
+                      child: Icon(Icons.arrow_forward_ios, size: 20.w, color: kBlackColor,)),
+                ],
+              ),
             )
           ],
         ),

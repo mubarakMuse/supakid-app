@@ -8,7 +8,7 @@ class AddProfileController extends GetxController {
   TextEditingController languageController = TextEditingController();
   TextEditingController genderController = TextEditingController();
 
-  RxBool isExpanded = false.obs;
+  RxBool isExpanded = true.obs;
   RxString nameError = ''.obs;
   RxString ageError = ''.obs;
 

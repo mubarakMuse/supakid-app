@@ -14,7 +14,6 @@ import '../../../../../../utils/app_strings.dart';
 import '../../../../../custom_widgets/back_button.dart';
 import '../../../../../custom_widgets/custom_textfield.dart';
 import '../../../../../custom_widgets/expandable_container.dart';
-import '../../../../../custom_widgets/toggle_container.dart';
 
 class AddProfileScreen extends GetView<AddProfileController > {
   const AddProfileScreen({super.key});
@@ -48,7 +47,7 @@ class AddProfileScreen extends GetView<AddProfileController > {
                         SizedBox(width: 50.w),
                       ],
                     ),
-                    SizedBox(height: 22.h,),
+                    SizedBox(height: 15.h,),
                     Text(kAddNewProfile, style: AppStyles.interStyle(kBlackColor, 20, FontWeight.w800)),
                     SizedBox(height: 3.h),
                     Text(kCreateNew, style: AppStyles.interStyle(kMidGreyColor, 14, FontWeight.w400)),

@@ -104,7 +104,7 @@ class ForgotPasswordScreen extends GetView<ForgotPasswordController>{
                           onPressed: () {
                             controller.validateFields();
                             if (controller.emailError.isNotEmpty) {
-                              showToast(context, msg: kToast, duration: 2);
+                              showToast(context, msg: kFieldsToast, duration: 2);
                             }else{
                               Get.toNamed(kOtp);
                             }

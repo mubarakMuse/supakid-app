@@ -120,22 +120,33 @@ class SignupScreen extends GetView<SignupController>{
                             ],
                           ),
                         ),
-                        CustomButton(
-                          text: kSigningUp,
-                          onPressed: () {
-                            controller.validateFields();
-                            if (controller.emailError.isNotEmpty ||
-                                controller.passwordError.isNotEmpty ||
-                                controller.confirmPasswordError.isNotEmpty
-                            ) {
-                              showToast(context, msg: kToast, duration: 2);
-                            }else{
-                              Get.toNamed(kForgotPassword);
-                            }
-
-                          },
-                          showIcon: false,
+                        Obx(
+                              () => CustomButton(
+                            text: kSigningUp,
+                            onPressed: () {
+                              if (!controller.isLoading.value) {
+                                controller.signUp(context);
+                              }
+                            },
+                            isLoading: controller.isLoading.value, // Observe loading state
+                          ),
                         ),
+                        // CustomButton(
+                        //   text: kSigningUp,
+                        //   onPressed: () {
+                        //     controller.validateFields();
+                        //     if (controller.emailError.isNotEmpty ||
+                        //         controller.passwordError.isNotEmpty ||
+                        //         controller.confirmPasswordError.isNotEmpty
+                        //     ) {
+                        //       showToast(context, msg: kToast, duration: 2);
+                        //     }else{
+                        //       Get.toNamed(kHome);
+                        //     }
+                        //
+                        //   },
+                        //   showIcon: false,
+                        // ),
                         SizedBox(height: 20.h,),
                         Center(child: GestureDetector(
                             onTap: () => Get.back(),

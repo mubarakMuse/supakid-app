@@ -119,29 +119,45 @@ class LoginScreen extends GetView<LoginController>{
                               ],
                             ),
                           ),
-                          CustomButton(
-                            text: kLoging,
-                            onPressed: () {
-                              controller.validateFields();
-                              if (controller.emailError.isNotEmpty || controller.passwordError.isNotEmpty) {
-                                showToast(context, msg: kToast, duration: 2);
-                              }else{
-                                Get.toNamed(kSignup);
-                              }
-                            },
-                            // showIcon: true,
+                          Obx(
+                                () => CustomButton(
+                              text: kLoging,
+                              onPressed: () {
+                                if (!controller.isLoading.value) {
+                                  controller.login(context);
+                                }
+                              },
+                              isLoading: controller.isLoading.value, // Observe loading state
+                            ),
                           ),
+
+
                           SizedBox(height: 20.h,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
                                 padding:  EdgeInsets.only(right: 25.0.w),
-                                child: Text(kForgotPass, style: AppStyles.interStyle(kRedColor, 12, FontWeight.w400),),
+                                child: GestureDetector(
+                                   onTap: () =>  Get.toNamed(kForgotPassword),
+                                    child: Text(kForgotPass, style: AppStyles.interStyle(kRedColor, 12, FontWeight.w400),)),
                               ),
                             ],
                           ),
                           SizedBox(height: 130.h,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(kDidAcc, style: AppStyles.interStyle(kBlackColor, 12, FontWeight.w400),),
+                              SizedBox(width: 3.w,),
+                              GestureDetector(
+                                  onTap: () =>  Get.toNamed(kSignup),
+                                  child: Text(
+                                    kSigningUp, style: AppStyles.interStyle(kRedColor, 12, FontWeight.w400))),
+                            ],
+                          ),
+
+                          SizedBox(height: 30.h,),
                           SizedBox(height: MediaQuery.of(context).viewInsets.bottom),
                         ],
                       ),

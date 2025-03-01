@@ -52,6 +52,7 @@ showToast(BuildContext context, {int duration = 3, String msg = ''}) {
 
 showLoader(BuildContext dialogContext, message) {
   AlertDialog alert = AlertDialog(
+    backgroundColor: kCardColor,
     content: Row(
       children: [
         const Padding(
@@ -67,7 +68,7 @@ showLoader(BuildContext dialogContext, message) {
               child: Text(
                 message,
                 maxLines: 5,
-                style: const TextStyle(fontSize: 16, ),
+                style: const TextStyle(fontSize: 16, color: kPrimaryColor ),
               ),
             )),
       ],

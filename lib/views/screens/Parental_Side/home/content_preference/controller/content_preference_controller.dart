@@ -7,7 +7,9 @@ class ContentPreferenceController extends GetxController {
 
   RxInt hours = 1.obs;
   RxBool isSwitch1 = true.obs;
-  RxBool isSwitch2 = false.obs;
+  RxBool isSwitch2 = true.obs;
+  RxBool isExpanded = true.obs;
+
 
   void incrementHour() {
     if (hours.value < 24) {
@@ -20,7 +22,10 @@ class ContentPreferenceController extends GetxController {
       hours.value--;
     }
   }
-  RxBool isExpanded = false.obs;
+
+  void resetToDefault() {
+    hours.value = 1;
+  }
   toggleExpansion() {
     isExpanded.value = !isExpanded.value;
   }

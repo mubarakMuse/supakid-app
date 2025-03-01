@@ -8,9 +8,9 @@ class EditProfileController extends GetxController {
   TextEditingController languageController = TextEditingController();
   TextEditingController genderController = TextEditingController();
 
-  RxBool isExpanded = false.obs;
-  RxBool isSwitch1 = false.obs;
-  RxBool isSwitch2 = false.obs;
+  RxBool isExpanded = true.obs;
+  RxBool isSwitch1 = true.obs;
+  RxBool isSwitch2 = true.obs;
 
    toggleExpansion() {
     isExpanded.value = !isExpanded.value;
