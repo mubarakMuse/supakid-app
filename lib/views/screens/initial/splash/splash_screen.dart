@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supakids/utils/app_colors.dart';
 import 'package:supakids/utils/app_styles.dart';
-import '../../../../utils/app_images.dart';
+import '../../../../../utils/app_images.dart';
 import 'controller/splash_controller.dart';
 
 class SplashScreen extends GetView<SplashController> {

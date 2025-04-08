@@ -5,18 +5,20 @@ import 'package:supakids/utils/app_colors.dart';
 import 'package:supakids/utils/app_images.dart';
 import 'package:supakids/utils/app_styles.dart';
 import 'package:supakids/utils/common_code.dart';
-import 'package:supakids/views/screens/auth/otp/Controller/opt_controller.dart';
-import '../../../../utils/app_strings.dart';
+import '../../../../../utils/app_strings.dart';
 import '../../../custom_widgets/custom_button.dart';
-import '../../../custom_widgets/loading.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+
+import 'controller/opt_controller.dart';
 
 class OtpScreen extends GetView<OtpController>{
   const OtpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
+    final String email = (Get.arguments != null && Get.arguments is Map<String, dynamic>)
+        ? Get.arguments["email"] ?? "No Email Provided"
+        : "No Email Provided";
     return GestureDetector(
       onTap: () => CommonCode.unFocus(context),
       child: Scaffold(
@@ -82,19 +84,19 @@ class OtpScreen extends GetView<OtpController>{
                               SizedBox(height: 28.h,),
                               Text(kEnterOtp, style: AppStyles.interStyle(kBlackColor, 24, FontWeight.w800),),
                               SizedBox(height: 3.h,),
-                              Text(kEnterYourOtp, style: AppStyles.interStyle(kBlackColor, 14, FontWeight.w400),),
+                              Text('$kEnterYourOtp $email', style: AppStyles.interStyle(kBlackColor, 14, FontWeight.w400),),
                               SizedBox(height: 32.h,),
                               Obx(() => OtpTextField(
                                 numberOfFields: 5,
                                 borderRadius: BorderRadius.circular(12),
                                 showFieldAsBox: true,
-                                borderColor:  kOtpBorderColor,
+                                borderColor: kOtpBorderColor,
                                 focusedBorderColor: controller.isOtpInvalid.value ? kRedColor : kPrimaryColor,
-                                enabledBorderColor: controller.isOtpInvalid.value ? kRedColor : kPrimaryColor,
+                                enabledBorderColor: controller.isOtpInvalid.value ? kRedColor : kDarkGrey,
                                 fieldWidth: 46,
                                 fieldHeight: 46,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                textStyle: AppStyles.interStyle(kBlackColor, 16, FontWeight.w400 ),
+                                textStyle: AppStyles.interStyle(kBlackColor, 16, FontWeight.w400),
                                 onCodeChanged: (String code) {
                                   controller.otpCode.value = code;
                                   controller.isOtpInvalid.value = false;
@@ -118,17 +120,13 @@ class OtpScreen extends GetView<OtpController>{
                             ],
                           ),
                         ),
-                        CustomButton(
+                        Obx(() =>CustomButton(
                           text: kVerifyCode,
                           onPressed: () {
-                            controller.validateFields();
-                            if (controller.otpError.isNotEmpty) {
-                              showToast(context, msg: "Please enter your OTP", duration: 2);
-                            } else {
-                              // Get.toNamed(kSignup);
-                            }
+                            controller.verifyOTP(context);
                           },
-                        ),
+                          isLoading: controller.isLoading.value,
+                        ),),
                         SizedBox(height: 27.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -139,12 +137,22 @@ class OtpScreen extends GetView<OtpController>{
                               style: AppStyles.interStyle(kDarkGrey , 14, FontWeight.w600),
                             ),
                             SizedBox(width: 5.w,),
-                            Text(
-                              kResendOtp,
-                              style: AppStyles.interStyle(kRedColor, 14, FontWeight.w600).copyWith(
-                                decoration: TextDecoration.underline
+                            Obx(() => GestureDetector(
+                              onTap: controller.isResendDisabled.value ? null : () {
+                                controller.resendOtp(context);
+                              },
+                              child: Text(
+                                controller.isResendDisabled.value
+                                    ? "Resend OTP in ${controller.countdown.value}s"  // Show countdown when disabled
+                                    : kResendOtp,  // Normal text when enabled
+                                style: AppStyles.interStyle(
+                                    controller.isResendDisabled.value ? kGreyColor : kRedColor, // Change color dynamically
+                                    14,
+                                    FontWeight.w600
+                                ).copyWith(decoration: TextDecoration.underline),
                               ),
-                            ),
+                            ))
+
                           ],
                         ),
 

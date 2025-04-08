@@ -1,9 +1,14 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:supakids/utils/app_strings.dart';
 
 
 import '../../utils/app_colors.dart';
+import '../../utils/app_styles.dart';
 
 FToast fToast = FToast();
 
@@ -81,6 +86,40 @@ showLoader(BuildContext dialogContext, message) {
     builder: (BuildContext dialogContext) {
       return alert;
     },
+  );
+}
+void showCustomDialog({
+  required String title,
+  required String middleText,
+  required VoidCallback onConfirm,
+}) {
+  Get.defaultDialog(
+    backgroundColor: kWhiteColor,
+    title: title,
+    titlePadding: EdgeInsets.only(top: 20.h),
+    titleStyle: AppStyles.interStyle(kBlackColor, 18, FontWeight.w800),
+    middleText: middleText,
+    middleTextStyle: AppStyles.interStyle(kBlackColor, 12, FontWeight.w400),
+    contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+    actions: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextButton(
+            onPressed: () => Get.back(), // Just close dialog
+            child: Text(kCancel, style: AppStyles.interStyle(kBlackColor, 14, FontWeight.w500)),
+          ),
+          TextButton(
+            onPressed: () {
+              onConfirm();
+              Get.back();
+            },
+            style: TextButton.styleFrom(backgroundColor: kPrimaryColor),
+            child: Text(kOk, style: AppStyles.interStyle(kWhiteColor, 14, FontWeight.w800)),
+          ),
+        ],
+      ),
+    ],
   );
 }
 

@@ -6,18 +6,13 @@ import 'package:supakids/utils/app_images.dart';
 import 'package:supakids/utils/app_styles.dart';
 import 'package:supakids/utils/common_code.dart';
 import 'package:supakids/views/screens/auth/login/controller/login_controller.dart';
-
-import '../../../../utils/app_strings.dart';
+import '../../../../../utils/app_strings.dart';
 import '../../../custom_widgets/custom_button.dart';
-import '../../../custom_widgets/loading.dart';
-
 
 class LoginScreen extends GetView<LoginController>{
   const LoginScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
-
       return GestureDetector(
         onTap: () => CommonCode.unFocus(context),
         child: Scaffold(
@@ -38,28 +33,32 @@ class LoginScreen extends GetView<LoginController>{
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 68.h,),
-                    Padding(
-                      padding: EdgeInsets.only(left: 60.0.w),
-                      child: Image.asset(kPencil, width: 294,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding:  EdgeInsets.only(right: 16.0.w),
+                          child: Image.asset(kPencil, width: 310.w,),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 29.h,),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0.h),
-                      child: Text( kWelcome, style: AppStyles.interStyle(kWhiteColor, 24, FontWeight.w800),),
+                      child: Text( kWelcomeBack, style: AppStyles.interStyle(kWhiteColor, 24, FontWeight.w800),),
                     ),
                     SizedBox(height: 5.h,),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0.h),
                       child: Text( kLoginAccess, style: AppStyles.interStyle(kWhiteColor, 14, FontWeight.w400),),
                     ),
-                    SizedBox(height: 35.h,),
                   ],
                 ),
               ),
               Positioned(
                   bottom: 0,
                   child: Container(
-                    height: AppStyles.height(context) / 1.64,
+                    height: AppStyles.height(context) / 1.55,
                     width: AppStyles.width(context),
                     decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
@@ -119,17 +118,13 @@ class LoginScreen extends GetView<LoginController>{
                               ],
                             ),
                           ),
-                          CustomButton(
-                            text: kLoging,
-                            onPressed: () {
-                              controller.validateFields();
-                              if (controller.emailError.isNotEmpty || controller.passwordError.isNotEmpty) {
-                                showToast(context, msg: kToast, duration: 2);
-                              }else{
-                                Get.toNamed(kSignup);
-                              }
-                            },
-                            // showIcon: true,
+                          Obx(() => CustomButton(
+                              text: kLoging,
+                              onPressed: () {
+                                controller.login(context);
+                              },
+                              isLoading: controller.isLoading.value,
+                            ),
                           ),
                           SizedBox(height: 20.h,),
                           Row(
@@ -137,11 +132,25 @@ class LoginScreen extends GetView<LoginController>{
                             children: [
                               Padding(
                                 padding:  EdgeInsets.only(right: 25.0.w),
-                                child: Text(kForgotPass, style: AppStyles.interStyle(kRedColor, 12, FontWeight.w400),),
+                                child: GestureDetector(
+                                   onTap: () =>  Get.toNamed(kForgotPassword),
+                                    child: Text(kForgotPass, style: AppStyles.interStyle(kRedColor, 12, FontWeight.w400),)),
                               ),
                             ],
                           ),
                           SizedBox(height: 130.h,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(kDidAcc, style: AppStyles.interStyle(kBlackColor, 12, FontWeight.w400),),
+                              SizedBox(width: 3.w,),
+                              GestureDetector(
+                                  onTap: () =>  Get.toNamed(kSignup),
+                                  child: Text(
+                                    kSigningUp, style: AppStyles.interStyle(kRedColor, 12, FontWeight.w400))),
+                            ],
+                          ),
+                          SizedBox(height: 30.h,),
                           SizedBox(height: MediaQuery.of(context).viewInsets.bottom),
                         ],
                       ),
@@ -149,6 +158,7 @@ class LoginScreen extends GetView<LoginController>{
                   ))
             ],
           ),
+
 
 
         ),

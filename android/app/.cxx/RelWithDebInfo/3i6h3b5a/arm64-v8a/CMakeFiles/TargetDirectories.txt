@@ -1,0 +1,2 @@
+D:/Project/Accelator/android/app/.cxx/RelWithDebInfo/3i6h3b5a/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Project/Accelator/android/app/.cxx/RelWithDebInfo/3i6h3b5a/arm64-v8a/CMakeFiles/rebuild_cache.dir

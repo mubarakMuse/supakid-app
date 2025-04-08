@@ -10,10 +10,8 @@ import 'package:supakids/utils/screen_bindings.dart';
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   ThemeData _buildTheme(brightness) {
     var baseTheme = ThemeData(brightness: brightness);
     return baseTheme.copyWith(
@@ -38,11 +36,6 @@ class MyApp extends StatelessWidget {
           borderSide:  const BorderSide(color: kPrimaryColor),
         ),
 
-      ),
-      textTheme: TextTheme(
-        titleMedium: TextStyle(color: kWhiteColor, fontSize: 14.sp) ,
-        bodyLarge: TextStyle(color: kWhiteColor, fontSize: 14.sp),
-        bodyMedium: TextStyle(color: kWhiteColor, fontSize: 14.sp),
       ),
       colorScheme: ThemeData().colorScheme.copyWith(primary: kPrimaryColor),
     );

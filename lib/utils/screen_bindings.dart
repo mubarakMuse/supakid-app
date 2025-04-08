@@ -1,25 +1,48 @@
 import 'package:get/get.dart';
+import 'package:supakids/views/custom_widgets/inerest_container/controller/interest_controller.dart';
+import 'package:supakids/views/custom_widgets/navigations_bar/admin_navbar/controller/admin_navbar_controller.dart';
 import 'package:supakids/views/screens/Parental_Side/Home/controller/home_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/auth/forgot_Password/Controller/forgotPassword_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/auth/login/controller/login_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/auth/otp/Controller/opt_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/auth/signup/controller/signup_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/Settings/change_language/controller/change_language_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/Settings/change_password/controller/change_password_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/Settings/controller/settings_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/active_history/controller/active_history_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/youtube_playlist/add_new_channel/controller/add_new_channel_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/child_Profile/add_profile/controller/add_profile_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/child_Profile/all_profiles/controller/all_profiles_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/child_Profile/edit_profile/controller/child_profiles_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/content_preference/controller/content_preference_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/notifications/controller/notification_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/screen_time/controller/screen_time_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/subscription_payment/controller/subscription_payment_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/home/youtube_playlist/controller/youtube_playlist_controller.dart';
-import 'package:supakids/views/screens/Parental_Side/initial/onBoard/controller/onBoard_controller.dart';
-import '../views/screens/Parental_Side/auth/set_new_Password/controller/set_password_controller.dart';
-import '../views/screens/Parental_Side/initial/splash/controller/splash_controller.dart';
+import 'package:supakids/views/screens/admin_side/admin_home/controller/admin_home_controller.dart';
+import 'package:supakids/views/screens/admin_side/admin_settings/controller/admin_setting_controller.dart';
+import 'package:supakids/views/screens/admin_side/manage_content/add_video/controller/add_video_controller.dart';
+import 'package:supakids/views/screens/admin_side/manage_content/controller/content_controller.dart';
+import 'package:supakids/views/screens/admin_side/manage_content/edit_video/controller/edit_video_controller.dart';
+import 'package:supakids/views/screens/admin_side/users/edit_parent_profile/controller/edit_parent_profile.dart';
+import 'package:supakids/views/screens/kid_side/category/controller/category_controller.dart';
+import 'package:supakids/views/screens/kid_side/downloads/controller/downloads_controller.dart';
+import 'package:supakids/views/screens/kid_side/favourite/controller/favourite_controller.dart';
+import 'package:supakids/views/screens/kid_side/profile/controller/profile_controller.dart';
+import 'package:supakids/views/screens/kid_side/video_play/controller/video_play_controller.dart';
+import 'package:supakids/views/screens/parental_side/child_Profile/all_child_profiles/controller/all_child_profiles_controller.dart';
+import 'package:supakids/views/screens/parental_side/content_preference/set_content/controller/set_content_controller.dart';
+import 'package:supakids/views/screens/parental_side/screen_time/set_screen_time/controller/set_screen_time_controller.dart';
+import '../views/custom_widgets/custom_textfield/controller/custom_textfield_controller.dart';
+import '../views/custom_widgets/navigations_bar/child_navbar/controller/child_navbar_controller.dart';
+import '../views/screens/admin_side/subscription_management/controller/subscription_controller.dart';
+import '../views/screens/admin_side/users/controller/users_controller.dart';
+import '../views/screens/auth/forgot_Password/controller/forogot_controller.dart';
+import '../views/screens/auth/login/controller/login_controller.dart';
+import '../views/screens/auth/otp/controller/opt_controller.dart';
+import '../views/screens/auth/set_new_Password/controller/set_password_controller.dart';
+import '../views/screens/auth/signup/controller/signup_controller.dart';
+import '../views/screens/initial/all_profiles/controller/all_profile_controller.dart';
+import '../views/screens/initial/onBoard/controller/onBoard_controller.dart';
+import '../views/screens/initial/splash/controller/splash_controller.dart';
+import '../views/screens/kid_side/home/controller/kid_home_controller.dart';
+import '../views/screens/parental_side/active_history/controller/active_history_controller.dart';
+import '../views/screens/parental_side/child_Profile/add_profile/controller/add_profile_controller.dart';
+import '../views/screens/parental_side/child_Profile/edit_profile/controller/edit_child_profiles_controller.dart';
+import '../views/screens/parental_side/content_preference/controller/content_preference_controller.dart';
+import '../views/screens/parental_side/notifications/controller/notification_controller.dart';
+import '../views/screens/parental_side/screen_time/controller/screen_time_controller.dart';
+import '../views/screens/parental_side/settings/change_language/controller/change_language_controller.dart';
+import '../views/screens/parental_side/settings/change_password/controller/change_password_controller.dart';
+import '../views/screens/parental_side/settings/controller/settings_controller.dart';
+import '../views/screens/parental_side/settings/parental_lock/controller/parental_lock_controller.dart';
+import '../views/screens/parental_side/subscription_payment/controller/subscription_payment_controller.dart';
+import '../views/screens/parental_side/youtube_playlist/add_new_channel/controller/add_new_channel_controller.dart';
+import '../views/screens/parental_side/youtube_playlist/controller/youtube_playlist_controller.dart';
+
 
 class ScreenBindings extends Bindings {
   @override
@@ -28,11 +51,11 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => OnBoardingController());
     Get.lazyPut(() => LoginController() );
     Get.lazyPut(() => SignupController() );
-    Get.lazyPut(() => ForgotPasswordController() );
+    Get.lazyPut(() => ForgotController() );
     Get.lazyPut(() => OtpController() );
     Get.lazyPut(() => SetPasswordController() );
     Get.lazyPut(() => HomeController() );
-    Get.lazyPut(() => AllProfilesController() );
+    Get.lazyPut(() => AllChildProfilesController() );
     Get.lazyPut(() => EditProfileController() );
     Get.lazyPut(() => AddProfileController() );
     Get.lazyPut(() => ContentPreferenceController() );
@@ -45,8 +68,28 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => SettingsController() );
     Get.lazyPut(() => ChangePasswordController() );
     Get.lazyPut(() => ChangeLanguageController() );
-
-
+    Get.lazyPut(() => ParentalLockController() );
+    Get.lazyPut(() => KidHomeController() );
+    Get.lazyPut(() => CategoryController() );
+    Get.lazyPut(() => VideoPlayController() );
+    Get.lazyPut(() => FavouriteController() );
+    Get.lazyPut(() => DownloadsController() );
+    Get.lazyPut(() => ProfileController() );
+    Get.lazyPut(() => ChildNavBarController() );
+    Get.lazyPut(() => InterestController() );
+    Get.lazyPut(() => CustomTextFieldController() );
+    Get.lazyPut(() => AllProfileController() );
+    Get.lazyPut(() => SetContentController() );
+    Get.lazyPut(() => AdminNavBarController() );
+    Get.lazyPut(() => UserController() );
+    Get.lazyPut(() => EditParentProfileController() );
+    Get.lazyPut(() => ContentController() );
+    Get.lazyPut(() => AddVideoController() );
+    Get.lazyPut(() => SubscriptionManagementController() );
+    Get.lazyPut(() => AdminHomeController() );
+    Get.lazyPut(() => AdminSettingController() );
+    Get.lazyPut(() => EditVideoController());
+    Get.lazyPut(() => SetScreenTimeController());
 
   }
 }

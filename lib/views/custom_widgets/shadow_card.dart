@@ -6,12 +6,16 @@ class ShadowCard extends StatelessWidget {
   final Widget child;
   final double? height;
   final double? width;
+  final double? borderRadius;
+  final Color? bgColor;
 
   const ShadowCard({
     Key? key,
     required this.child,
     this.height,
      this.width,
+     this.borderRadius,
+     this.bgColor,
   }) : super(key: key);
 
   @override
@@ -20,8 +24,8 @@ class ShadowCard extends StatelessWidget {
       height: height,
       width: width ?? AppStyles.width(context),
       decoration: BoxDecoration(
-        color: kCardColor,
-        borderRadius: BorderRadius.circular(28),
+        color: bgColor ?? kCardColor,
+        borderRadius: BorderRadius.circular(borderRadius ?? 28),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),

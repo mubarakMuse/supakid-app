@@ -20,8 +20,39 @@ String kBillIcon = "$basePathIcons/bill.png";
 String kPlaneIcon = "$basePathIcons/chnagePlane.png";
 String kHistoryIcon = "$basePathIcons/history.png";
 String kCancelIcon = "$basePathIcons/cancel.png";
-
-
+String kEmailIcon = "$basePathIcons/email.png";
+String kPhoneIcon = "$basePathIcons/phone.png";
+String kDownloadIcon = "$basePathIcons/download.png";
+String kMyDownloadIcon = "$basePathIcons/myDownloads.png";
+String kHomeIcon = "$basePathIcons/home.png";
+String kGameIcon = "$basePathIcons/game.png";
+String kFavIcon = "$basePathIcons/favourite.png";
+String kProfileIcon = "$basePathIcons/myProfile.png";
+String kChildIcon = "$basePathIcons/child.png";
+String kAgeIcon = "$basePathIcons/age.png";
+String kFavouriteIcon = "$basePathIcons/favs.png";
+String kMobileIcon = "$basePathIcons/mobs.png";
+String kUsersIcon = "$basePathIcons/users.png";
+String kContentIcon = "$basePathIcons/content.png";
+String kPlansIcon = "$basePathIcons/plans.png";
+String kReportIcon = "$basePathIcons/reports.png";
+String kActiveIcon = "$basePathIcons/active.png";
+String kChildrenIcon = "$basePathIcons/childs.png";
+String kPlayerIcon = "$basePathIcons/vedioPlayer.png";
+String kCategoryIcon = "$basePathIcons/category.png";
+String kViewsIcon = "$basePathIcons/views.png";
+String kStatusIcon = "$basePathIcons/status.png";
+String kApproveIcon = "$basePathIcons/approve.png";
+String kMoneyIcon = "$basePathIcons/money.png";
+String kBillingIcon = "$basePathIcons/billing.png";
+String kUpgradeIcon = "$basePathIcons/upgrade.png";
+String kDowngradeIcon = "$basePathIcons/downgrade.png";
+String kUserProfileIcon = "$basePathIcons/netflix.png";
+String kFirstChildIcon = "$basePathIcons/netflix1.png";
+String kSecondChildIcon = "$basePathIcons/netflix2.png";
+String kThirdChildIcon = "$basePathIcons/netflix3.png";
+String kNoChildIcon = "$basePathIcons/person.png";
+String kCsvIcon = "$basePathIcons/csv.png";
 
 
 //IMAGES
@@ -35,3 +66,43 @@ String kSupaLogo = "$basePath/supaLogo.png";
 String kSpaceIMG = "$basePath/space.png";
 String kLionIMG = "$basePath/lion.png";
 String kChildIMG = "$basePath/child.png";
+String kPinLogo = "$basePath/cuate.png";
+String kProfile1 = "$basePath/profile1.png";
+String kProfile2 = "$basePath/profile2.png";
+String kProfile3 = "$basePath/profile3.png";
+String kProfile4 = "$basePath/profile4.png";
+String kLearningIMG = "$basePath/learning.png";
+String kArtsIMG = "$basePath/art.png";
+String kFact = "$basePath/funFact.png";
+String kArtIMG = "$basePath/artCarft.png";
+String kTightsIMG = "$basePath/titles.png";
+String kWatching1 = "$basePath/watching1.png";
+String kThumbnail = "$basePath/thumbnail.png";
+String kThumbnail2 = "$basePath/islamic.png";
+String kCategory1 = "$basePath/category1.png";
+String kCategoryIMG = "$basePath/childs.png";
+String kCategory3 = "$basePath/category3.png";
+String kVideosPlay = "$basePath/videoPlay.png";
+String kNextWatch1 = "$basePath/nextWatch1.png";
+String kNextWatch2 = "$basePath/nextWatch2.png";
+String kNextWatch3 = "$basePath/nextWatch3.png";
+String kParentIcon = "$basePath/parent.png";
+String kFav1 = "$basePath/fav1.png";
+String kFav2 = "$basePath/fav2.png";
+String kFav3 = "$basePath/fav3.png";
+String kGame1 = "$basePath/game1.png";
+String kGame2 = "$basePath/game2.png";
+String kGame3 = "$basePath/game3.png";
+String kGame4 = "$basePath/game4.png";
+String kGame5 = "$basePath/game5.png";
+String kGame6 = "$basePath/game6.png";
+String kTitleIMG = "$basePath/title.png";
+String kGraphIMG = "$basePath/Graph.png";
+String kGraph1IMG = "$basePath/graph1.png";
+String kGraph2IMG = "$basePath/graph2.png";
+String kGraph3IMG = "$basePath/graph3.png";
+String kGraph4IMG = "$basePath/graph4.png";
+
+
+
+

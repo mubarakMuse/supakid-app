@@ -31,14 +31,13 @@ class ExpandableContainer extends StatelessWidget {
             GestureDetector(
               onTap: onToggle,
               child: Container(
-                height: AppStyles.height(context) * 0.075.h,
                 width:  AppStyles.width(context),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: kPrimaryColor,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding:  EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 15.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

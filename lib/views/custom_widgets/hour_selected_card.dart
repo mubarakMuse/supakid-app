@@ -33,14 +33,14 @@ class HourSelectorCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: AppStyles.height(context) * 0.075.h,
+
               width:  AppStyles.width(context),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: kPrimaryColor,
               ),
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                padding:  EdgeInsets.symmetric(horizontal: 20.h , vertical: 18.h),
                 child: Row(
                   children: [
                     Text(title, style: AppStyles.interStyle(

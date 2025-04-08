@@ -106,12 +106,12 @@ class CustomHomeContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isSelected = index == selectedIndex;
     return GestureDetector(
-      onTap: onPressed, // Calls the function that updates the selected index
+      onTap: onPressed,
       child: Container(
         height: AppStyles.height(context) / 5.6,
         width: AppStyles.width(context) / 2.425,
         decoration: BoxDecoration(
-          color: isSelected ? Colors.blue : kRedColor, // Change color dynamically
+          color: isSelected ? kPrimaryColor : kRedColor,
           borderRadius: BorderRadius.circular(28),
           boxShadow: [
             BoxShadow(

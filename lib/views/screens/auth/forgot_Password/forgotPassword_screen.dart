@@ -5,13 +5,12 @@ import 'package:supakids/utils/app_colors.dart';
 import 'package:supakids/utils/app_images.dart';
 import 'package:supakids/utils/app_styles.dart';
 import 'package:supakids/utils/common_code.dart';
-import 'package:supakids/views/screens/auth/forgot_Password/Controller/forgotPassword_controller.dart';
-import '../../../../utils/app_strings.dart';
+import '../../../../../utils/app_strings.dart';
 import '../../../custom_widgets/custom_button.dart';
-import '../../../custom_widgets/loading.dart';
+import 'controller/forogot_controller.dart';
 
 
-class ForgotPasswordScreen extends GetView<ForgotPasswordController>{
+class ForgotPasswordScreen extends GetView<ForgotController>{
   const ForgotPasswordScreen({super.key});
 
   @override
@@ -84,10 +83,10 @@ class ForgotPasswordScreen extends GetView<ForgotPasswordController>{
                               SizedBox(height: 3.h,),
                               Text(kPleaseEnterID, style: AppStyles.interStyle(kBlackColor, 14, FontWeight.w400),),
                               SizedBox(height: 52.h,),
-                              Text(kUserID, style: AppStyles.interStyle(kGreyColor, 12, FontWeight.w400),),
+                              Text(kEmail, style: AppStyles.interStyle(kGreyColor, 12, FontWeight.w400),),
                               SizedBox(height: 5.h,),
                               Obx(() =>  TextField(
-                                controller: controller.userIdController,
+                                controller: controller.emailController,
                                 decoration: InputDecoration(
                                   hintText: kEnterUserID,
                                   errorText: controller.emailError.value.isNotEmpty ? controller.emailError.value : null,
@@ -99,18 +98,15 @@ class ForgotPasswordScreen extends GetView<ForgotPasswordController>{
                             ],
                           ),
                         ),
-                        CustomButton(
-                          text: kResetPassword,
-                          onPressed: () {
-                            controller.validateFields();
-                            if (controller.emailError.isNotEmpty) {
-                              showToast(context, msg: kToast, duration: 2);
-                            }else{
-                              Get.toNamed(kOtp);
-                            }
-                          },
-                          // showIcon: true,
-                        ),
+                      Obx(() =>   CustomButton(
+                        text: kResetPassword,
+                        onPressed: () {
+                          if (!controller.isLoading.value) {
+                            controller.forgetPassword(context);
+                          }
+                        },
+                        isLoading: controller.isLoading.value,
+                      ),),
                         SizedBox(height: MediaQuery.of(context).viewInsets.bottom),
                       ],
                     ),
